@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import "./Footer.css";
 import {
   FaTelegramPlane,
@@ -10,7 +11,12 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <motion.footer
+      className="footer"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
+    >
       <hr className="footer-separator" />
       <div className="footer-content">
         <h3>Elias Aynekulu</h3>
@@ -73,7 +79,7 @@ const Footer = () => {
           &copy; {new Date().getFullYear()} Elias Aynekulu. All rights reserved.
         </p>
       </div>
-    </footer>
+    </motion.footer>
   );
 };
 

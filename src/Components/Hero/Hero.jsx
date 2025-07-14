@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import "./Hero.css";
 import profile_img from "../assets/profile_img.jpg";
 import AnchorLink from "react-anchor-link-smooth-scroll";
+import { FaDownload } from "react-icons/fa";
 
 const roles = [
   "Frontend Designer",
@@ -42,7 +44,12 @@ const Hero = () => {
   }, [displayedText, isRemoving, index]);
 
   return (
-    <div id="home" className="hero">
+    <motion.div
+      className="hero"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <img src={profile_img} alt="Profile" />
       <div className="hero-content">
         <h1>
@@ -59,14 +66,35 @@ const Hero = () => {
         </p>
       </div>
       <div className="hero-action">
-        <div className="hero-connect">
-          <AnchorLink className="anchor-link" offset={50} href="#contact">
-            <p onClick={() => setMenu("contact")}>Connect With Me</p>
-          </AnchorLink>
-        </div>
-        <div className="hero-resume">My resume</div>
+        <motion.div
+          className="hero-connect"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.96 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          Connect With Me
+        </motion.div>
+        <motion.div
+          className="hero-resume"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.96 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          My resume
+        </motion.div>
+        <motion.a
+          href="/resume.pdf"
+          download
+          className="hero-download-resume"
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.96 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none' }}
+        >
+          <FaDownload /> Download Resume
+        </motion.a>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

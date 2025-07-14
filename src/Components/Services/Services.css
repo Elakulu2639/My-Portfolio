@@ -5,6 +5,7 @@
   justify-content: center;
   gap: 80px;
   margin: 80px 170px;
+  color: var(--text-main);
 }
 
 .services-title {
@@ -49,14 +50,15 @@
 .service-icon {
   font-size: 48px;
   margin-bottom: 20px;
-  color: #09d4df;
+  color: var(--accent);
 }
 
 .service-card h3 {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 10px;
-  background: linear-gradient(270deg, #09d4df 50.41%, #b415ff 90.25%);
+  color: var(--accent);
+  background: var(--accent-gradient);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -65,7 +67,7 @@
 .service-card p {
   font-size: 18px;
   font-weight: 500;
-  color: #666;
+  color: var(--text-secondary);
 }
 
 @media (max-width: 768px) {
@@ -97,5 +99,32 @@
     font-size: 18px;
     line-height: 32px;
     max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    margin: 10px 2vw;
+    gap: 30px;
+  }
+  .services-title h1 {
+    font-size: 2rem;
+    padding: 0;
+  }
+  .services-container {
+    gap: 20px;
+  }
+  .service-card {
+    width: 90vw;
+    padding: 16px;
+    font-size: 1rem;
+  }
+  .service-card h3 {
+    font-size: 1.2rem;
+  }
+  .service-card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 90vw;
   }
 }

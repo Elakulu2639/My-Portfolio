@@ -10,57 +10,31 @@ const About = () => {
       </div>
       <div className="about-section">
         <div className="about-left">
-          <img src={profile_img} alt="" />
+          <img src={profile_img} alt="Profile" />
         </div>
         <div className="about-right">
           <div className="about-para">
-            <p>
-              Hello! I'm Elias Aynekulu, an experienced Full Stack Developer
-              with a deep love for technology and innovation. I thrive on the
-              challenge of building dynamic and responsive web applications that
-              not only meet client needs but also provide exceptional user
-              experiences.
-            </p>
-            <p>
-              I am passionate about coding and enjoy exploring new technologies.
-              The thrill of solving complex problems and turning ideas into
-              reality drives my work.
-            </p>
+            <span>
+              Hi! I'm Elias Aynekulu, a passionate frontend developer dedicated to building beautiful, user-friendly web experiences.
+            </span>
+            <span>
+              I love turning ideas into reality using code, and I’m always eager to learn new technologies and improve my craft.
+            </span>
           </div>
-          <div className="about-skills">
-            <div className="about-skill">
-              <p>HTML & CSS</p>
-              <hr style={{ width: "50%" }} />
+          <div className="about-achievements">
+            <div className="about-achievement">
+              <h1>2+</h1>
+              <p>Years Experience</p>
             </div>
-            <div className="about-skill">
-              <p>JavaScript</p>
-              <hr style={{ width: "60%" }} />
+            <div className="about-achievement">
+              <h1>10+</h1>
+              <p>Projects Completed</p>
             </div>
-            <div className="about-skill">
-              <p>React</p>
-              <hr style={{ width: "70%" }} />
-            </div>
-            <div className="about-skill">
-              <p>Git</p>
-              <hr style={{ width: "55%" }} />
+            <div className="about-achievement">
+              <h1>5+</h1>
+              <p>Happy Clients</p>
             </div>
           </div>
-        </div>
-      </div>
-      <div className="about-achievements">
-        <div className="about-achievement">
-          <h1>1+</h1>
-          <p>YEARS OF EXPERIENCE</p>
-        </div>
-        <hr />
-        <div className="about-achievement">
-          <h1>90+</h1>
-          <p>PROJECTS COMPLETED</p>
-        </div>
-        <hr />
-        <div className="about-achievement">
-          <h1>5+</h1>
-          <p>HAPPY CLIENTS</p>
         </div>
       </div>
     </div>

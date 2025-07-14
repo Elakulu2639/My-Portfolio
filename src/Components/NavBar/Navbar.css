@@ -4,6 +4,7 @@
   justify-content: space-between;
   margin: 20px 60px;
   position: relative;
+  color: var(--text-main);
 }
 
 .nav-menu {
@@ -25,16 +26,17 @@
 }
 
 .active-menu-item p {
-  color: #25d1da !important;
+  color: var(--accent) !important;
 }
 
 .nav-connect {
   padding: 10px;
   border-radius: 50px;
-  background: linear-gradient(267deg, #25d1da 0.36%, #b923e1 102.06%);
+  background: var(--accent-gradient);
   font-size: 22px;
   cursor: pointer;
   transition: 0.5s;
+  color: #fff;
 }
 
 .nav-connect:hover {
@@ -43,7 +45,7 @@
 
 .logo {
   font-size: 3rem;
-  color: white;
+  color: var(--text-main);
   font-weight: 800;
   cursor: pointer;
   transition: 0.3s ease;
@@ -56,13 +58,13 @@
 }
 
 .logo span {
-  text-shadow: 0 0 25px #76f9f9;
-  color: #75f5e8;
+  color: var(--accent);
+  text-shadow: 0 0 25px var(--accent);
 }
 
 .anchor-link {
   text-decoration: none;
-  color: white;
+  color: var(--text-main);
 }
 
 .hamburger {
@@ -73,7 +75,29 @@
 
 .hamburger .icon {
   font-size: 1.5rem;
-  color: white;
+  color: var(--text-main);
+}
+
+.logo-container {
+  padding: 4px;
+  border-radius: 50%;
+  transition: box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  align-items: center;
+}
+.logo-img {
+  height: 52px;
+  width: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 12px 0 var(--accent), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+  object-fit: cover;
+  background: var(--bg-main);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+.logo-container:hover .logo-img {
+  transform: scale(1.08);
+  box-shadow: 0 0 16px 2px var(--accent), 0 2px 12px 0 rgba(0,0,0,0.12);
 }
 
 @media (max-width: 768px) {
@@ -110,5 +134,26 @@
     top: 20px;
     right: 20px;
     z-index: 1000;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    margin: 10px 2vw;
+  }
+  .logo {
+    font-size: 2rem;
+    padding-right: 20px;
+  }
+  .nav-menu {
+    width: 80vw;
+    font-size: 1rem;
+  }
+  .nav-connect {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+  .hamburger .icon {
+    font-size: 1.2rem;
   }
 }

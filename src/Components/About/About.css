@@ -179,3 +179,30 @@
     text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .about {
+    margin: 30px 2vw;
+    gap: 40px;
+  }
+  .about-title h1 {
+    font-size: 2rem;
+    padding: 0;
+  }
+  .about-section {
+    gap: 20px;
+  }
+  .about-para {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .about-skill p {
+    font-size: 1rem;
+  }
+  .about-achievement h1 {
+    font-size: 1.5rem;
+  }
+  .about-achievement p {
+    font-size: 0.9rem;
+  }
+}

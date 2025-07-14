@@ -1,83 +1,89 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { motion } from "framer-motion";
+import emailjs from "emailjs-com";
 import "./Contact.css";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+
+const socialLinks = [
+  { icon: <FaLinkedin />, url: "https://linkedin.com/in/yourprofile", label: "LinkedIn" },
+  { icon: <FaGithub />, url: "https://github.com/yourusername", label: "GitHub" },
+  { icon: <FaTwitter />, url: "https://twitter.com/yourusername", label: "Twitter" },
+  { icon: <FaEnvelope />, url: "mailto:your@email.com", label: "Email" },
+];
+
+const SERVICE_ID = "your_service_id"; // TODO: Replace with your EmailJS service ID
+const TEMPLATE_ID = "your_template_id"; // TODO: Replace with your EmailJS template ID
+const USER_ID = "your_user_id"; // TODO: Replace with your EmailJS user/public key
 
 const Contact = () => {
+  const form = useRef();
   const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    const formData = new FormData(event.target);
-
-    formData.append("access_key", "d57ba47c-fb34-40e5-adce-2c78aa5e6713");
-
-    const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
-
-    try {
-      const res = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID)
+      .then(
+        (result) => {
+          setStatus("Message sent successfully!");
+          setLoading(false);
+          form.current.reset();
         },
-        body: json,
-      }).then((res) => res.json());
-
-      if (res.success) {
-        alert("Message sent successfully!");
-        setStatus("Message sent successfully!");
-      } else {
-        alert("Failed to send message. Please try again.");
-        setStatus("Failed to send message. Please try again.");
-      }
-    } catch (error) {
-      alert("An error occurred. Please try again.");
-      setStatus("An error occurred. Please try again.");
-    }
+        (error) => {
+          setStatus("Failed to send message. Please try again later.");
+          setLoading(false);
+        }
+      );
   };
 
   return (
-    <div id="contact" className="contact-section">
+    <motion.div
+      id="contact"
+      className="contact-section"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+    >
       <div className="contact-info">
         <h1>Let's talk</h1>
         <p>
-          I'm currently available to take on new projects, so feel free to send
-          me a message about anything that you want me to work on. You can
-          contact anytime.
+          I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
         </p>
         <div className="icons">
-          <div className="icon">
-            <FaEnvelope />
-            <span>Email: elakulu1993@gmail.com</span>
-          </div>
-          <div className="icon">
-            <FaPhone />
-            <span>Phone: +251962771180</span>
-          </div>
-          <div className="icon">
-            <FaMapMarkerAlt />
-            <span>Location: Addis Ababa, Ethiopia</span>
-          </div>
+          <div className="icon"><FaMapMarkerAlt /> Addis Ababa, Ethiopia</div>
+          <div className="icon"><FaPhone /> +251 912 345 678</div>
+          <div className="icon"><FaEnvelope /> your@email.com</div>
+        </div>
+        <div className="contact-socials">
+          {socialLinks.map((s, i) => (
+            <motion.a
+              key={s.label}
+              href={s.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="contact-social-link"
+              aria-label={s.label}
+              whileHover={{ scale: 1.2, color: "var(--accent)" }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              {s.icon}
+            </motion.a>
+          ))}
         </div>
       </div>
-      <div className="contact-form">
+      <form ref={form} className="contact-form" onSubmit={handleSubmit}>
         <h2>Contact Me</h2>
-        <form onSubmit={onSubmit}>
-          <input type="text" name="name" placeholder="Your Name" required />
-          <input type="email" name="email" placeholder="Your Email" required />
-          <textarea
-            name="message"
-            cols="30"
-            rows="10"
-            placeholder="Your Message"
-            required
-          ></textarea>
-          <button type="submit">Send Message</button>
-        </form>
-        {status && <p>{status}</p>}
-      </div>
-    </div>
+        <input type="text" name="user_name" placeholder="Your Name" required />
+        <input type="email" name="user_email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required />
+        <button type="submit" disabled={loading}>
+          {loading ? "Sending..." : "Send Message"}
+        </button>
+        {status && <p className="contact-status">{status}</p>}
+      </form>
+    </motion.div>
   );
 };
 

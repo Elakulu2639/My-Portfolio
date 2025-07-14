@@ -12,6 +12,9 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@hcaptcha/react-hcaptcha": "^1.11.1",
+    "emailjs-com": "^3.2.0",
+    "framer-motion": "^12.23.1",
     "react": "^18.3.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^18.3.1",

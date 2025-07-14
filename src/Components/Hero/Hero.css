@@ -16,7 +16,7 @@
 }
 
 span {
-  color: #75f5e8;
+  color: var(--accent);
 }
 
 .hero-content h3 {
@@ -37,13 +37,13 @@ span {
   top: 0;
   width: 15vw;
   border-radius: 50%;
-  box-shadow: 0 0 25px #75f5e8;
+  box-shadow: 0 0 25px var(--accent);
   cursor: pointer;
   transition: 0.4s ease-in-out;
 }
 
 .hero img:hover {
-  box-shadow: 0 0 25px #75f5e8, 0 0 25px #75f5e8, 0 0 25px #75f5e8;
+  box-shadow: 0 0 25px var(--accent), 0 0 25px var(--accent), 0 0 25px var(--accent);
 }
 
 .hero-content p {
@@ -65,15 +65,41 @@ span {
 .hero-resume {
   cursor: pointer; /* Change cursor to pointer */
   padding: 10px 20px; /* Add padding for buttons */
-  border: 2px solid #75f5e8; /* Button border */
+  border: 2px solid var(--accent); /* Button border */
   border-radius: 5px; /* Rounded corners */
   transition: background-color 0.3s; /* Smooth transition */
+  background: var(--accent-gradient);
+  color: #fff;
 }
 
 .hero-connect:hover,
 .hero-resume:hover {
-  background-color: #75f5e8; /* Change background on hover */
-  color: white; /* Change text color on hover */
+  background-color: var(--accent);
+  color: #fff;
+}
+
+.hero-download-resume {
+  background: var(--accent-gradient);
+  color: #fff !important;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 2px 8px 0 var(--accent), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+  outline: none;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+.hero-download-resume:hover, .hero-download-resume:focus {
+  background: var(--accent);
+  color: #fff !important;
+  box-shadow: 0 0 16px 2px var(--accent), 0 2px 12px 0 rgba(0,0,0,0.12);
 }
 
 @media (max-width: 768px) {
@@ -108,5 +134,38 @@ span {
   .hero-resume {
     font-size: 20px;
     padding: 8px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    margin: 60px 5vw;
+    gap: 12px;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content h3 {
+    font-size: 1.1rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .hero img {
+    margin-top: 60px;
+    width: 50vw;
+  }
+  .hero-action {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .hero-connect,
+  .hero-resume {
+    font-size: 1rem;
+    padding: 6px 10px;
+  }
+  .hero-download-resume {
+    font-size: 1rem;
+    padding: 8px 12px;
   }
 }

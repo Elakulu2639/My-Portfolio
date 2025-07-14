@@ -1,41 +1,50 @@
 import React from "react";
+import { mywork_data } from "../assets/mywork_data";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
 import "./MyWork.css";
-import project1 from "../assets/project1.png"; // Adjust the paths as necessary
-import project2 from "../assets/project2.png";
-import project3 from "../assets/project3.png";
 
 const MyWork = () => {
   return (
-    <div id="work" className="mywork">
+    <motion.div
+      id="work"
+      className="mywork"
+      initial={{ opacity: 0, y: 40 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
+    >
       <h1>My latest work</h1>
       <div className="work-container">
-        <div className="work-item">
-          <img src={project1} alt="Project 1" />
-          <p>
-            Tic Tac Toe is a simple two-player game where players take turns
-            marking a 3x3 grid with Xs and Os to achieve three in a row.
-          </p>
-        </div>
-        <div className="work-item">
-          <img src={project2} alt="Project 2" />
-          <p>
-            This quiz app allows users to test their knowledge across various
-            subjects through multiple-choice questions and interactive quizzes.
-            It often features scoring systems, leaderboards, and the ability to
-            track progress over time.
-          </p>
-        </div>
-        <div className="work-item">
-          <img src={project3} alt="Project 3" />
-          <p>
-            An AI image generator utilizes advanced algorithms to create
-            original images based on user inputs or predefined styles. It
-            empowers users to explore creativity by transforming text prompts or
-            images into visually stunning artworks.
-          </p>
-        </div>
+        {mywork_data.map((work, index) => (
+          <motion.div
+            className="work-item"
+            key={index}
+            whileHover={{ scale: 1.05, boxShadow: "0 8px 24px var(--accent)" }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <img src={work.image} alt={work.title} />
+            <div className="work-content">
+              <h3 className="work-title">{work.title}</h3>
+              <p className="work-desc">{work.description}</p>
+              <div className="work-tech">
+                {work.tech.map((t) => (
+                  <span className="work-tech-badge" key={t}>{t}</span>
+                ))}
+              </div>
+              <div className="work-links">
+                <a href={work.live} target="_blank" rel="noopener noreferrer" className="work-link">
+                  <FaExternalLinkAlt /> Live
+                </a>
+                <a href={work.github} target="_blank" rel="noopener noreferrer" className="work-link">
+                  <FaGithub /> GitHub
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { FaBars, FaTimes } from "react-icons/fa"; // Import icons
+import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Add sun/moon icons
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    // Check localStorage for dark mode preference
+    return localStorage.getItem("darkMode") === "true";
+  });
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -15,12 +19,34 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
+  // Toggle dark mode and update html class
+  const toggleDarkMode = () => {
+    setDarkMode((prev) => {
+      const newMode = !prev;
+      localStorage.setItem("darkMode", newMode);
+      if (newMode) {
+        document.documentElement.classList.add("dark-mode");
+      } else {
+        document.documentElement.classList.remove("dark-mode");
+      }
+      return newMode;
+    });
+  };
+
+  // On mount, set the class based on localStorage
+  React.useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark-mode");
+    } else {
+      document.documentElement.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
+
   return (
     <div className="navbar">
-      <div href="#home" className="logo">
-        Elias
-        <span>Aynekulu</span>
-      </div>
+      <a href="#home" className="logo logo-container" style={{display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none'}}>
+        <img src="/logo.png" alt="Logo" className="logo-img" />
+      </a>
       <ul className={`nav-menu ${isOpen ? "open" : ""}`}>
         <li className={menu === "home" ? "active-menu-item" : ""}>
           <AnchorLink
@@ -100,6 +126,22 @@ const Navbar = () => {
           <p>Connect With Me</p>
         </AnchorLink>
       </div>
+      {/* Dark mode toggle button */}
+      <button
+        className="dark-mode-toggle"
+        onClick={toggleDarkMode}
+        aria-label="Toggle dark mode"
+        style={{
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          marginLeft: "1rem",
+          fontSize: "1.5rem",
+          color: darkMode ? "#ffe066" : "#333"
+        }}
+      >
+        {darkMode ? <FaSun /> : <FaMoon />}
+      </button>
       <div className="hamburger" onClick={toggleMenu}>
         {isOpen ? (
           <FaTimes className="icon" onClick={closeMenu} />

@@ -13,6 +13,7 @@ const MyWork = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
     >
+      <div className="mywork-bg-blob" />
       <h1>My latest work</h1>
       <div className="work-container">
         {mywork_data.map((work, index) => (
@@ -33,9 +34,11 @@ const MyWork = () => {
                 ))}
               </div>
               <div className="work-links">
-                <a href={work.live} target="_blank" rel="noopener noreferrer" className="work-link">
-                  <FaExternalLinkAlt /> Live
-                </a>
+                {work.live && work.live !== "" && (
+                  <a href={work.live} target="_blank" rel="noopener noreferrer" className="work-link">
+                    <FaExternalLinkAlt /> Live
+                  </a>
+                )}
                 <a href={work.github} target="_blank" rel="noopener noreferrer" className="work-link">
                   <FaGithub /> GitHub
                 </a>

@@ -1,27 +1,39 @@
 import React from "react";
 import "./Services.css";
-import { FaDesktop, FaMobileAlt, FaPencilAlt } from "react-icons/fa";
+import { FaDesktop, FaServer, FaDatabase, FaCloud, FaPencilRuler } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Services = () => {
   const services_data = [
     {
       icon: <FaDesktop />,
-      title: "Web Design",
+      title: "Frontend Development",
       description:
-        "Crafting visually appealing and user-friendly websites that captivate your audience.",
+        "Building responsive, modern web interfaces with React, Next.js, Vue.js, Tailwind, and more.",
     },
     {
-      icon: <FaMobileAlt />,
-      title: "App Design",
+      icon: <FaServer />,
+      title: "Backend & API Development",
       description:
-        "Designing intuitive and engaging mobile applications that provide a seamless user experience.",
+        "Designing robust APIs and server logic using Node.js, Python (FastAPI), Java, and .NET Core.",
     },
     {
-      icon: <FaPencilAlt />,
+      icon: <FaDatabase />,
+      title: "Database Design",
+      description:
+        "Modeling and optimizing databases with SQL Server, PostgreSQL, and best practices for data integrity.",
+    },
+    {
+      icon: <FaCloud />,
+      title: "DevOps & Deployment",
+      description:
+        "Automating deployment, CI/CD, and cloud hosting for scalable, reliable applications.",
+    },
+    {
+      icon: <FaPencilRuler />,
       title: "UI/UX Design",
       description:
-        "Optimizing the interface and user experience to ensure maximum usability and satisfaction.",
+        "Crafting user-centric, visually engaging interfaces and seamless user experiences.",
     },
   ];
 

@@ -1,19 +1,20 @@
 import React, { useState, useRef } from "react";
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaLinkedin, FaGithub, FaTelegramPlane, FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { motion } from "framer-motion";
 import emailjs from "emailjs-com";
 import "./Contact.css";
 
 const socialLinks = [
-  { icon: <FaLinkedin />, url: "https://linkedin.com/in/yourprofile", label: "LinkedIn" },
-  { icon: <FaGithub />, url: "https://github.com/yourusername", label: "GitHub" },
-  { icon: <FaTwitter />, url: "https://twitter.com/yourusername", label: "Twitter" },
-  { icon: <FaEnvelope />, url: "mailto:your@email.com", label: "Email" },
+  { icon: <FaLinkedin />, url: "https://www.linkedin.com/in/eliasaynekulu/", label: "LinkedIn" },
+  { icon: <FaGithub />, url: "https://github.com/Elakulu2639", label: "GitHub" },
+  { icon: <FaTelegramPlane />, url: "https://t.me/@Ela_2639", label: "Telegram" },
+  { icon: <FaInstagram />, url: "https://instagram.com/ela_kulu", label: "Instagram" },
+  { icon: <FaWhatsapp />, url: "https://wa.me/+251962771180", label: "WhatsApp" },
 ];
 
-const SERVICE_ID = "your_service_id"; // TODO: Replace with your EmailJS service ID
-const TEMPLATE_ID = "your_template_id"; // TODO: Replace with your EmailJS template ID
-const USER_ID = "your_user_id"; // TODO: Replace with your EmailJS user/public key
+const SERVICE_ID = "service_k23vfrb"; // TODO: Replace with your EmailJS service ID
+const TEMPLATE_ID = "template_b0l9tsj"; // TODO: Replace with your EmailJS template ID
+const USER_ID = "6ijfXE-zIjOu1O4bX"; // TODO: Replace with your EmailJS user/public key
 
 const Contact = () => {
   const form = useRef();
@@ -34,7 +35,7 @@ const Contact = () => {
         (error) => {
           setStatus("Failed to send message. Please try again later.");
           setLoading(false);
-        }
+    }
       );
   };
 
@@ -46,6 +47,7 @@ const Contact = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
     >
+      <div className="contact-bg-blob" />
       <div className="contact-info">
         <h1>Let's talk</h1>
         <p>
@@ -53,9 +55,9 @@ const Contact = () => {
         </p>
         <div className="icons">
           <div className="icon"><FaMapMarkerAlt /> Addis Ababa, Ethiopia</div>
-          <div className="icon"><FaPhone /> +251 912 345 678</div>
-          <div className="icon"><FaEnvelope /> your@email.com</div>
-        </div>
+          <div className="icon"><FaPhone /> +251 962 771 180</div>
+          <div className="icon"><FaEnvelope /> e9710092@gmail.com</div>
+          </div>
         <div className="contact-socials">
           {socialLinks.map((s, i) => (
             <motion.a
@@ -82,7 +84,7 @@ const Contact = () => {
           {loading ? "Sending..." : "Send Message"}
         </button>
         {status && <p className="contact-status">{status}</p>}
-      </form>
+        </form>
     </motion.div>
   );
 };

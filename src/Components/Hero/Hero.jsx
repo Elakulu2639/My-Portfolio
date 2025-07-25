@@ -6,11 +6,12 @@ import AnchorLink from "react-anchor-link-smooth-scroll";
 import { FaDownload } from "react-icons/fa";
 
 const roles = [
-  "Frontend Designer",
-  "Web Designer",
+  "Frontend Developer",
+  "Backend Developer",
+  "Full Stack Developer",
+  "Software Engineer",
+  "Application Developer",
   "UI / UX Designer",
-  "Web Developer",
-  "Software Tester",
 ];
 
 const Hero = () => {
@@ -45,6 +46,7 @@ const Hero = () => {
 
   return (
     <motion.div
+      id="home"
       className="hero"
       initial={{ opacity: 0, y: 40 }}
       animate={{ opacity: 1, y: 0 }}
@@ -59,29 +61,20 @@ const Hero = () => {
           I'm a <span className="animated-text">{displayedText}</span>
         </h3>
         <p>
-          I am an experienced Full Stack Developer with a passion for building
-          dynamic and responsive web applications. With a robust background in
-          both front-end and back-end technologies, I excel at creating seamless
-          user experiences while ensuring efficient server-side functionality.
+          I am a versatile developer passionate about building modern, scalable, and user-friendly applications. With experience as a Frontend Developer, Backend Developer, Full Stack Developer, Software Engineer, Application Developer, and UI/UX Designer, I bring creative solutions and technical expertise to every project.
         </p>
       </div>
       <div className="hero-action">
-        <motion.div
-          className="hero-connect"
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          Connect With Me
-        </motion.div>
-        <motion.div
-          className="hero-resume"
-          whileHover={{ scale: 1.08 }}
-          whileTap={{ scale: 0.96 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          My resume
-        </motion.div>
+        <AnchorLink href="#contact" className="hero-connect-anchor">
+          <motion.div
+            className="hero-connect"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            Connect With Me
+          </motion.div>
+          </AnchorLink>
         <motion.a
           href="/resume.pdf"
           download

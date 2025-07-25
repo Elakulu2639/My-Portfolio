@@ -1,85 +1,61 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { FaGithub, FaLinkedin, FaInstagram, FaTelegramPlane, FaWhatsapp } from "react-icons/fa";
 import "./Footer.css";
-import {
-  FaTelegramPlane,
-  FaInstagram,
-  FaGithub,
-  FaLinkedin,
-} from "react-icons/fa";
-import AnchorLink from "react-anchor-link-smooth-scroll";
 
 const Footer = () => {
   return (
-    <motion.footer
-      className="footer"
-      initial={{ opacity: 0, y: 40 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut", delay: 0.5 }}
-    >
-      <hr className="footer-separator" />
-      <div className="footer-content">
-        <h3>Elias Aynekulu</h3>
-        <p>Full Stack Developer</p>
-        <div className="footer-nav">
-          <AnchorLink href="#home" className="footer-link">
-            Home
-          </AnchorLink>
-          <AnchorLink href="#about" className="footer-link">
-            About
-          </AnchorLink>
-          <AnchorLink href="#services" className="footer-link">
-            Services
-          </AnchorLink>
-          <AnchorLink href="#work" className="footer-link">
-            My Work
-          </AnchorLink>
-          <AnchorLink href="#contact" className="footer-link">
-            Contact
-          </AnchorLink>
+    <footer className="footer">
+      <div className="footer-content grid-footer">
+        {/* About/Brand */}
+        <div className="footer-about">
+          <h3 className="footer-name gradient-text">Elias Aynekulu</h3>
+          <p className="footer-desc">
+            Full-stack developer passionate about building modern, scalable, and user-friendly applications. Experienced in frontend, backend, databases, DevOps, and UI/UX design.
+          </p>
+          <div className="footer-social-icons">
+            <a href="https://github.com/Elakulu2639" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
+            <a href="https://www.linkedin.com/in/eliasaynekulu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegramPlane /></a>
+            <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
+          </div>
         </div>
-        <div className="social-icons">
-          <a
-            href="https://t.me/@Ela_2639"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon"
-          >
-            <FaTelegramPlane />
-          </a>
-          <a
-            href="https://instagram.com/ela_kulu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon"
-          >
-            <FaInstagram />
-          </a>
-          <a
-            href="https://github.com/Elakulu2639"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon"
-          >
-            <FaGithub />
-          </a>
-          <a
-            href="https://linkedin.com/in/elias-aynekulu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="icon"
-            // www.linkedin.com/in/elias-aynekulu
-          >
-            <FaLinkedin />
-          </a>
+        {/* Quick Links */}
+        <div className="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a className="footer-link" href="#about">About</a></li>
+            <li><a className="footer-link" href="#skills">Skills</a></li>
+            <li><a className="footer-link" href="#work">Projects</a></li>
+            <li><a className="footer-link" href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        {/* Services */}
+        <div className="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li>Frontend Development</li>
+            <li>Backend/API Development</li>
+            <li>Database Design</li>
+            <li>DevOps & Deployment</li>
+            <li>UI/UX Design</li>
+          </ul>
+        </div>
+        {/* Contact */}
+        <div className="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>e9710092@gmail.com</li>
+            <li>+251 962 771 180</li>
+            <li>Addis Ababa, Ethiopia</li>
+          </ul>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>
-          &copy; {new Date().getFullYear()} Elias Aynekulu. All rights reserved.
-        </p>
+        <span>© {new Date().getFullYear()} Elias Aynekulu. All rights reserved.</span>
+        <span className="footer-made">Made with <span style={{color: 'var(--accent2)', fontWeight: 700}}>&#10084;</span> using React &amp; Framer Motion</span>
       </div>
-    </motion.footer>
+    </footer>
   );
 };
 

@@ -1,90 +1,137 @@
-html {
-  box-sizing: border-box;
-  overflow-x: hidden;
-}
-* {
-  box-sizing: inherit;
-}
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  overflow-x: hidden;
-  height: 100vh;
-  background: #161513;
-  color: white;
-  font-family: "outfit";
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
 
-/* Light mode (default) */
 :root {
-  --bg-main: #f8f9fa;
-  --bg-secondary: #ffffff;
-  --text-main: #181818;
-  --text-secondary: #444;
-  --accent: #25d1da;
-  --accent-gradient: linear-gradient(267deg, #25d1da 0.36%, #b923e1 102.06%);
-  --card-bg: #f4f4f4;
-  --shadow: 0 4px 24px rgba(0,0,0,0.08);
+  --bg-main: #f6f8fc;
+  --bg-secondary: #ffffffcc;
+  --glass-bg: rgba(255,255,255,0.7);
+  --glass-blur: 16px;
+  --text-main: #181c2a;
+  --text-secondary: #5a6273;
+  --accent: #7f5af0;
+  --accent2: #2cb67d;
+  --accent-gradient: linear-gradient(90deg, #7f5af0 0%, #2cb67d 100%);
+  --card-bg: rgba(255,255,255,0.85);
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.12);
 }
 
 html, body {
+  font-family: 'Inter', system-ui, sans-serif;
   background: var(--bg-main);
   color: var(--text-main);
-  transition: background 0.4s, color 0.4s;
+  min-height: 100vh;
+  transition: background 0.5s, color 0.5s;
+  scroll-behavior: smooth;
 }
 
-/* Dark mode */
-.dark-mode {
-  --bg-main: #181818;
-  --bg-secondary: #232323;
-  --text-main: #f8f9fa;
-  --text-secondary: #bdbdbd;
-  --accent: #75f5e8;
-  --accent-gradient: linear-gradient(267deg, #75f5e8 0.36%, #b923e1 102.06%);
-  --card-bg: #232323;
-  --shadow: 0 4px 24px rgba(0,0,0,0.32);
-}
-
-/* Example usage for creative, modern look */
-body, .navbar, .footer, .services, .about, .mywork, .contact-section {
-  background: var(--bg-main) !important;
-  color: var(--text-main) !important;
-  transition: background 0.4s, color 0.4s;
-}
-
-.card, .service-card, .about-section, .work-item, .contact-form {
-  background: var(--card-bg) !important;
-  color: var(--text-main) !important;
-  box-shadow: var(--shadow);
-  transition: background 0.4s, color 0.4s, box-shadow 0.4s;
+body {
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.5em;
   transition: color 0.4s;
 }
 
-a, .footer-link, .anchor-link {
+h1 {
+  font-size: 2.8rem;
+}
+h2 {
+  font-size: 2.1rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+section, .section {
+  padding: 80px 0 60px 0;
+  position: relative;
+}
+
+/* Glassmorphism card style */
+.card, .service-card, .testimonial-card, .skill-card, .work-item, .contact-form {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  box-shadow: var(--shadow);
+  border-radius: 18px;
+  border: 1.5px solid #e0e0e0;
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+/* Accent gradient text */
+.gradient-text {
+  background: var(--accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Modern links and buttons */
+a, .footer-link, .anchor-link, .work-link, .contact-social-link {
   color: var(--accent);
-  transition: color 0.4s;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+a:hover, .footer-link:hover, .anchor-link:hover, .work-link:hover, .contact-social-link:hover {
+  color: var(--accent2);
 }
 
-.active-menu-item p {
-  color: var(--accent) !important;
-}
-
-button, .nav-connect, .hero-connect, .hero-resume {
+button, .nav-connect, .hero-connect, .hero-resume, .hero-download-resume {
   background: var(--accent-gradient) !important;
   color: #fff !important;
   border: none;
-  transition: background 0.4s, color 0.4s;
+  border-radius: 8px;
+  font-weight: 600;
+  box-shadow: 0 2px 8px 0 var(--accent), 0 1.5px 8px 0 rgba(0,0,0,0.08);
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+button:hover, .nav-connect:hover, .hero-connect:hover, .hero-resume:hover, .hero-download-resume:hover {
+  background: var(--accent2);
+  color: #fff !important;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 4px 16px 0 var(--accent2);
 }
 
-button.dark-mode-toggle {
-  background: none !important;
-  color: var(--accent) !important;
-  border: none;
-  transition: color 0.4s;
+/* Section divider (wave) */
+.section-divider {
+  width: 100vw;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.5rem; }
+  section, .section { padding: 50px 0 40px 0; }
+}
+@media (max-width: 600px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.1rem; }
+  section, .section { padding: 30px 0 20px 0; }
+}
+
+/* Dark mode overrides */
+.dark-mode {
+  --bg-main: #181c2a;
+  --bg-secondary: #23263a;
+  --glass-bg: rgba(24,28,42,0.7);
+  --text-main: #f6f8fc;
+  --text-secondary: #bdbdbd;
+  --accent: #7f5af0;
+  --accent2: #2cb67d;
+  --accent-gradient: linear-gradient(90deg, #7f5af0 0%, #2cb67d 100%);
+  --card-bg: rgba(24,28,42,0.85);
+  --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.32);
 }

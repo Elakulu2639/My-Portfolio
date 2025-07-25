@@ -23,6 +23,11 @@ const testimonials = [
   }
 ];
 
+const cardVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: (i) => ({ opacity: 1, y: 0, transition: { delay: 0.18 * i, duration: 0.7, type: "spring" } })
+};
+
 const Testimonials = () => {
   return (
     <motion.section
@@ -33,17 +38,21 @@ const Testimonials = () => {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
+      <div className="testimonials-bg-blob" />
       <h2 className="testimonials-title">Testimonials</h2>
       <div className="testimonials-list">
         {testimonials.map((t, idx) => (
           <motion.div
             className="testimonial-card"
             key={t.name}
-            whileHover={{ scale: 1.04, boxShadow: "0 4px 16px var(--accent)" }}
-            transition={{ type: "spring", stiffness: 300 }}
+            custom={idx}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={cardVariants}
           >
             <img className="testimonial-avatar" src={t.avatar} alt={t.name + " avatar"} />
-            <div className="testimonial-quote">“{t.quote}”</div>
+            <div className="testimonial-quote">{t.quote}</div>
             <div className="testimonial-name">{t.name}</div>
             <div className="testimonial-title">{t.title}</div>
           </motion.div>

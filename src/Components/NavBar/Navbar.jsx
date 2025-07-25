@@ -1,25 +1,31 @@
 import React, { useState } from "react";
-import "./Navbar.css";
 import AnchorLink from "react-anchor-link-smooth-scroll";
-import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // Add sun/moon icons
+import { FaMoon, FaSun } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import "./Navbar.css";
+
+const navItems = [
+  { label: "Home", href: "#home" },
+  { label: "About Me", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "Portfolio", href: "#work" },
+  { label: "Contact", href: "#contact" }
+];
+
+const navItemVariants = {
+  closed: { opacity: 0, x: -40 },
+  open: (i) => ({ opacity: 1, x: 0, transition: { delay: 0.18 * i } })
+};
 
 const Navbar = () => {
   const [menu, setMenu] = useState("home");
   const [isOpen, setIsOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(() => {
-    // Check localStorage for dark mode preference
     return localStorage.getItem("darkMode") === "true";
   });
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
-  const closeMenu = () => {
-    setIsOpen(false);
-  };
-
-  // Toggle dark mode and update html class
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
   const toggleDarkMode = () => {
     setDarkMode((prev) => {
       const newMode = !prev;
@@ -32,8 +38,6 @@ const Navbar = () => {
       return newMode;
     });
   };
-
-  // On mount, set the class based on localStorage
   React.useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark-mode");
@@ -44,110 +48,85 @@ const Navbar = () => {
 
   return (
     <div className="navbar">
-      <a href="#home" className="logo logo-container" style={{display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none'}}>
-        <img src="/logo.png" alt="Logo" className="logo-img" />
-      </a>
-      <ul className={`nav-menu ${isOpen ? "open" : ""}`}>
-        <li className={menu === "home" ? "active-menu-item" : ""}>
-          <AnchorLink
-            className="anchor-link"
-            href="#home"
-            onClick={() => {
-              setMenu("home");
-              closeMenu();
-            }}
-          >
-            <p>Home</p>
-          </AnchorLink>
-        </li>
-        <li className={menu === "about" ? "active-menu-item" : ""}>
-          <AnchorLink
-            className="anchor-link"
-            offset={50}
-            href="#about"
-            onClick={() => {
-              setMenu("about");
-              closeMenu();
-            }}
-          >
-            <p>About Me</p>
-          </AnchorLink>
-        </li>
-        <li className={menu === "services" ? "active-menu-item" : ""}>
-          <AnchorLink
-            className="anchor-link"
-            offset={50}
-            href="#services"
-            onClick={() => {
-              setMenu("services");
-              closeMenu();
-            }}
-          >
-            <p>Services</p>
-          </AnchorLink>
-        </li>
-        <li className={menu === "work" ? "active-menu-item" : ""}>
-          <AnchorLink
-            className="anchor-link"
-            offset={50}
-            href="#work"
-            onClick={() => {
-              setMenu("work");
-              closeMenu();
-            }}
-          >
-            <p>Portfolio</p>
-          </AnchorLink>
-        </li>
-        <li className={menu === "contact" ? "active-menu-item" : ""}>
-          <AnchorLink
-            className="anchor-link"
-            offset={50}
-            href="#contact"
-            onClick={() => {
-              setMenu("contact");
-              closeMenu();
-            }}
-          >
-            <p>Contact</p>
-          </AnchorLink>
-        </li>
-      </ul>
-      <div className="nav-connect">
-        <AnchorLink
-          className="anchor-link"
-          offset={50}
-          href="#contact"
-          onClick={() => {
-            setMenu("contact");
-            closeMenu();
-          }}
-        >
-          <p>Connect With Me</p>
+      <div className="navbar-inner">
+        <AnchorLink href="#home" className="logo logo-container" style={{display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none'}}>
+          <img src="/logo.png" alt="Logo" className="logo-img" />
         </AnchorLink>
+        <div className="navbar-navrow">
+          <ul className={`nav-menu${isOpen ? " open" : ""}`}>
+            {/* Desktop/Large screen nav items */}
+            {(!isOpen || window.innerWidth > 768) && navItems.map((item) => (
+              <li
+                key={item.label}
+                className={menu === item.label.toLowerCase().replace(/\s/g, "") ? "active-menu-item" : ""}
+              >
+          <AnchorLink
+            className="anchor-link"
+                  href={item.href}
+            onClick={() => {
+                    setMenu(item.label.toLowerCase().replace(/\s/g, ""));
+              closeMenu();
+            }}
+          >
+                  <p>{item.label}</p>
+          </AnchorLink>
+        </li>
+            ))}
+            {/* Mobile nav items with animation */}
+            <AnimatePresence>
+              {isOpen && window.innerWidth <= 768 && navItems.map((item, i) => (
+                <motion.li
+                  key={item.label}
+                  className={menu === item.label.toLowerCase().replace(/\s/g, "") ? "active-menu-item" : ""}
+                  custom={i}
+                  initial="closed"
+                  animate="open"
+                  exit="closed"
+                  variants={navItemVariants}
+                >
+          <AnchorLink
+            className="anchor-link"
+                    href={item.href}
+            onClick={() => {
+                      setMenu(item.label.toLowerCase().replace(/\s/g, ""));
+              closeMenu();
+            }}
+          >
+                    <p>{item.label}</p>
+          </AnchorLink>
+                </motion.li>
+              ))}
+            </AnimatePresence>
+          </ul>
+          {/* Dark mode toggle as a nav item */}
+          <button
+            className="dark-mode-toggle"
+            onClick={toggleDarkMode}
+            aria-label="Toggle dark mode"
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              marginLeft: "1.2rem",
+              fontSize: "1.5rem",
+              color: darkMode ? "#ffe066" : "#333"
+            }}
+          >
+            {darkMode ? <FaSun /> : <FaMoon />}
+          </button>
+          <div
+            className={`hamburger${isOpen ? " open" : ""}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+            tabIndex={0}
+            role="button"
+          >
+            <span className="bar bar1"></span>
+            <span className="bar bar2"></span>
+            <span className="bar bar3"></span>
+          </div>
+          {isOpen && <div className="nav-overlay" onClick={closeMenu} />}
       </div>
-      {/* Dark mode toggle button */}
-      <button
-        className="dark-mode-toggle"
-        onClick={toggleDarkMode}
-        aria-label="Toggle dark mode"
-        style={{
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          marginLeft: "1rem",
-          fontSize: "1.5rem",
-          color: darkMode ? "#ffe066" : "#333"
-        }}
-      >
-        {darkMode ? <FaSun /> : <FaMoon />}
-      </button>
-      <div className="hamburger" onClick={toggleMenu}>
-        {isOpen ? (
-          <FaTimes className="icon" onClick={closeMenu} />
-        ) : (
-          <FaBars className="icon" />
-        )}
       </div>
     </div>
   );

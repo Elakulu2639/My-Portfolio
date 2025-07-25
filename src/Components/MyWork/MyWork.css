@@ -1,60 +1,85 @@
 .mywork {
-  background-color: var(--bg-main);
+  position: relative;
+  background: none;
   text-align: center;
-  padding: 40px 20px;
+  padding: 80px 0 60px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 80px;
+  z-index: 1;
+}
+
+.mywork-bg-blob {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at 20% 80%, var(--accent) 0%, transparent 70%);
+  opacity: 0.13;
+  z-index: 0;
+  filter: blur(8px);
+  pointer-events: none;
 }
 
 .mywork h1 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: var(--text-main);
+  color: var(--accent);
   position: relative;
   font-weight: 600;
+  z-index: 1;
 }
 
 .work-container {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1100px;
+  z-index: 1;
 }
 
 .work-item {
-  margin: 15px;
-  width: 300px;
-  transition: 1.3s;
+  background: var(--glass-bg);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 0 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.3s, transform 0.3s, background 0.3s;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.work-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px 0 var(--accent2);
+  background: var(--bg-secondary);
 }
 
 .work-item img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
-  transition: 0.3s;
-  cursor: pointer;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+  transition: transform 0.4s cubic-bezier(.4,2,.6,1);
+  z-index: 1;
 }
-
-.work-item:hover {
-  transform: scale(1.05);
-  border: 4px solid var(--accent);
-  border-radius: 10px;
-}
-
-.work-item p {
-  margin-top: 10px;
-  font-size: 1.2rem;
-  color: var(--text-secondary);
+.work-item:hover img {
+  transform: scale(1.07);
 }
 
 .work-content {
-  padding: 1rem 0 0 0;
+  padding: 1.2rem 1.2rem 0 1.2rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 0.7rem;
+  width: 100%;
 }
 
 .work-title {
@@ -86,12 +111,14 @@
   padding: 2px 10px;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
   letter-spacing: 0.5px;
+  transition: background 0.3s, color 0.3s;
 }
 
 .work-links {
   display: flex;
   gap: 1rem;
   margin-top: 0.2rem;
+  z-index: 2;
 }
 
 .work-link {
@@ -103,56 +130,47 @@
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.2s;
+  background: none;
+  border-radius: 4px;
+  padding: 2px 8px;
 }
 
 .work-link:hover {
   color: var(--text-main);
+  background: var(--accent-gradient);
+  color: #fff;
 }
 
-@media (max-width: 768px) {
-  .mywork {
-    margin: 50px 70px;
-    gap: 50px;
-    align-items: start;
-  }
-
-  .mywork h1 {
-    padding: 0;
-    font-size: 50px;
-    font-weight: 600;
-  }
-
-  .work-container {
-    gap: 30px;
-  }
-
-  .work-item {
-    width: 100%; /* Make work items take full width on small screens */
-    height: 100%;
-  }
-
-  .work-item p {
-    font-size: 1rem;
-  }
+/* Animated overlay for project links */
+.work-item .work-links {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.work-item:hover .work-links {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   .mywork {
-    margin: 20px 2vw;
-    gap: 20px;
+    padding: 50px 0 40px 0;
   }
   .mywork h1 {
-    font-size: 2rem;
-    padding: 0;
+    font-size: 1.5rem;
   }
   .work-container {
-    gap: 10px;
+    gap: 1.2rem;
   }
-  .work-item {
-    width: 100%;
-    margin: 5px 0;
+}
+@media (max-width: 600px) {
+  .work-container {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
-  .work-item p {
-    font-size: 0.9rem;
+  .mywork {
+    padding: 30px 0 20px 0;
   }
 }

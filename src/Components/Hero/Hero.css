@@ -61,8 +61,7 @@ span {
   margin-top: 20px; /* Space above the action buttons */
 }
 
-.hero-connect,
-.hero-resume {
+.hero-connect {
   cursor: pointer; /* Change cursor to pointer */
   padding: 10px 20px; /* Add padding for buttons */
   border: 2px solid var(--accent); /* Button border */
@@ -72,8 +71,7 @@ span {
   color: #fff;
 }
 
-.hero-connect:hover,
-.hero-resume:hover {
+.hero-connect:hover {
   background-color: var(--accent);
   color: #fff;
 }
@@ -130,8 +128,7 @@ span {
     gap: 15px;
   }
 
-  .hero-connect,
-  .hero-resume {
+  .hero-connect {
     font-size: 20px;
     padding: 8px 16px;
   }
@@ -159,8 +156,7 @@ span {
     flex-direction: column;
     gap: 10px;
   }
-  .hero-connect,
-  .hero-resume {
+  .hero-connect {
     font-size: 1rem;
     padding: 6px 10px;
   }

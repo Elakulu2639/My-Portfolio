@@ -49,9 +49,9 @@ const Contact = () => {
     >
       <div className="contact-bg-blob" />
       <div className="contact-info">
-        <h1>Let's talk</h1>
+        <h1>Let's Connect</h1>
         <p>
-          I’m always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
+          I'm always interested in discussing new opportunities, innovative projects, and potential collaborations. Let's explore how we can work together to achieve your goals.
         </p>
         <div className="icons">
           <div className="icon"><FaMapMarkerAlt /> Addis Ababa, Ethiopia</div>
@@ -76,7 +76,7 @@ const Contact = () => {
         </div>
       </div>
       <form ref={form} className="contact-form" onSubmit={handleSubmit}>
-        <h2>Contact Me</h2>
+        <h2>Send Message</h2>
         <input type="text" name="user_name" placeholder="Your Name" required />
         <input type="email" name="user_email" placeholder="Your Email" required />
         <textarea name="message" rows="5" placeholder="Your Message" required />

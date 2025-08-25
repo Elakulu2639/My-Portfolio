@@ -9,31 +9,31 @@ const Services = () => {
       icon: <FaDesktop />,
       title: "Frontend Development",
       description:
-        "Building responsive, modern web interfaces with React, Next.js, Vue.js, Tailwind, and more.",
+        "Developing responsive, high-performance web applications using React, Next.js, Vue.js, and modern CSS frameworks with focus on user experience and accessibility.",
     },
     {
       icon: <FaServer />,
-      title: "Backend & API Development",
+      title: "Backend Development",
       description:
-        "Designing robust APIs and server logic using Node.js, Python (FastAPI), Java, and .NET Core.",
+        "Architecting scalable server-side solutions and RESTful APIs using Node.js, Python FastAPI, Java, and ASP.NET Core with emphasis on security and performance.",
     },
     {
       icon: <FaDatabase />,
-      title: "Database Design",
+      title: "Database Architecture",
       description:
-        "Modeling and optimizing databases with SQL Server, PostgreSQL, and best practices for data integrity.",
+        "Designing and optimizing database schemas using SQL Server and PostgreSQL, ensuring data integrity, performance, and scalability for enterprise applications.",
     },
     {
       icon: <FaCloud />,
-      title: "DevOps & Deployment",
+      title: "DevOps & Cloud Solutions",
       description:
-        "Automating deployment, CI/CD, and cloud hosting for scalable, reliable applications.",
+        "Implementing CI/CD pipelines, containerization, and cloud deployment strategies to ensure reliable, scalable, and maintainable application infrastructure.",
     },
     {
       icon: <FaPencilRuler />,
-      title: "UI/UX Design",
+      title: "System Architecture",
       description:
-        "Crafting user-centric, visually engaging interfaces and seamless user experiences.",
+        "Designing comprehensive system architectures and technical solutions that align with business requirements and industry best practices.",
     },
   ];
 

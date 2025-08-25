@@ -55,13 +55,13 @@ const Hero = () => {
       <img src={profile_img} alt="Profile" />
       <div className="hero-content">
         <h1>
-          Hi, it's <span>Elias</span>
+          <span>Elias Aynekulu</span>
         </h1>
         <h3 className="text-animation">
-          I'm a <span className="animated-text">{displayedText}</span>
+          <span className="animated-text">{displayedText}</span>
         </h3>
         <p>
-          I am a versatile developer passionate about building modern, scalable, and user-friendly applications. With experience as a Frontend Developer, Backend Developer, Full Stack Developer, Software Engineer, Application Developer, and UI/UX Designer, I bring creative solutions and technical expertise to every project.
+          Experienced software engineer specializing in full-stack development with expertise in modern web technologies, enterprise applications, and scalable system architecture. Proven track record of delivering high-quality solutions that drive business growth and enhance user experiences.
         </p>
       </div>
       <div className="hero-action">
@@ -72,7 +72,7 @@ const Hero = () => {
             whileTap={{ scale: 0.96 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            Connect With Me
+            Get In Touch
           </motion.div>
           </AnchorLink>
         <motion.a

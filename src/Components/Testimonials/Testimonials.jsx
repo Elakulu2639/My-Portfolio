@@ -4,22 +4,22 @@ import "./Testimonials.css";
 
 const testimonials = [
   {
-    name: "Jane Doe",
+    name: "Sarah Johnson",
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-    quote: "Elias is a fantastic developer! He delivered our project on time and exceeded expectations with his attention to detail.",
-    title: "Product Manager, Acme Inc."
+    quote: "Elias delivered exceptional results on our enterprise application. His technical expertise and professional approach made the entire project seamless.",
+    title: "Senior Product Manager, TechCorp"
   },
   {
-    name: "John Smith",
+    name: "Michael Chen",
     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-    quote: "Working with Elias was a pleasure. His creativity and technical skills are top-notch.",
-    title: "CTO, Tech Solutions"
+    quote: "Outstanding work on our full-stack solution. Elias combines strong technical skills with excellent communication and project management.",
+    title: "CTO, InnovateLabs"
   },
   {
-    name: "Emily Chen",
+    name: "David Rodriguez",
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
-    quote: "I highly recommend Elias for any frontend project. He brings ideas to life beautifully!",
-    title: "Designer, Freelance"
+    quote: "Elias transformed our legacy system into a modern, scalable application. His attention to detail and code quality is impressive.",
+    title: "Engineering Manager, DataFlow Systems"
   }
 ];
 

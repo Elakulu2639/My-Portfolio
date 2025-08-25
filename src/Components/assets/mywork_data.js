@@ -8,7 +8,7 @@ export const mywork_data = [
     image: assistant,
     title: "Intelligent Assistant Chatbot for ERP",
     description:
-      "The Intelligent Assistant Chatbot for ERP is a next-generation conversational AI solution designed specifically for enterprise resource planning (ERP) environments. It empowers users to interact with complex business data and processes through natural language, streamlining workflows, improving productivity, and enhancing user experience across ERP modules.",
+      "Enterprise-grade conversational AI solution for ERP systems, enabling natural language interaction with complex business data. Features advanced NLP processing, real-time data integration, and comprehensive analytics dashboard.",
     tech: ["React.js", "ASP.NET Core Web API", "Python", "SQL Server", "ChromaDB"],
     github: "https://github.com/Elakulu2639/Virtual_Assistant",
     live: ""
@@ -17,7 +17,7 @@ export const mywork_data = [
     image: beststore,
     title: "BestStore E-commerce Platform",
     description:
-      "BestStore is a sophisticated e-commerce platform built with ASP.NET Core MVC, featuring a modern architecture and comprehensive set of features for both customers and administrators.",
+      "Full-featured e-commerce platform with modern architecture, secure payment processing, inventory management, and comprehensive admin dashboard. Built with scalability and performance in mind.",
     tech: ["ASP.NET Core MVC", "SQL Server", "Bootstrap"],
     github: "https://github.com/Elakulu2639/BestStore",
     live: ""
@@ -26,8 +26,8 @@ export const mywork_data = [
     image: performance,
     title: "Student Performance Predictor",
     description:
-      "A machine learning-powered tool that analyzes student data to predict academic performance and identify at-risk students. It enables educators and administrators to make data-driven decisions, personalize interventions, and improve overall educational outcomes.",
-    tech: ["Jupyter Notebook"],
+      "Machine learning application for educational analytics, predicting student performance and identifying at-risk students. Implements advanced algorithms for data analysis and provides actionable insights for educators.",
+    tech: ["Python", "Machine Learning", "Data Analysis", "Jupyter"],
     github: "https://github.com/Elakulu2639/ML",
     live: ""
   },
@@ -35,8 +35,8 @@ export const mywork_data = [
     image: attendance,
     title: "Attendance Manager App",
     description:
-      "A streamlined mobile application for tracking and managing student attendance. It simplifies the process for teachers and students, provides real-time attendance analytics, and helps institutions maintain accurate records with ease.",
-    tech: ["Java"],
+      "Mobile application for efficient attendance tracking and management. Features real-time synchronization, comprehensive reporting, and intuitive interface for educational institutions.",
+    tech: ["Java", "Android", "SQLite", "Material Design"],
     github: "https://github.com/Elakulu2639/Attendance-Manager-App",
     live: ""
   }

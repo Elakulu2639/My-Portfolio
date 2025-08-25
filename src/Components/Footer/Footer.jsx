@@ -10,14 +10,14 @@ const Footer = () => {
         <div className="footer-about">
           <h3 className="footer-name gradient-text">Elias Aynekulu</h3>
           <p className="footer-desc">
-            Full-stack developer passionate about building modern, scalable, and user-friendly applications. Experienced in frontend, backend, databases, DevOps, and UI/UX design.
+            Professional software engineer specializing in full-stack development, system architecture, and enterprise solutions. Committed to delivering high-quality, scalable applications that drive business success.
           </p>
           <div className="footer-social-icons">
             <a href="https://github.com/Elakulu2639" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
             <a href="https://www.linkedin.com/in/eliasaynekulu/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
-            <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
-            <a href="https://t.me/yourusername" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegramPlane /></a>
-            <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
+            <a href="https://instagram.com/ela_kulu" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><FaInstagram /></a>
+            <a href="https://t.me/@Ela_2639" target="_blank" rel="noopener noreferrer" aria-label="Telegram"><FaTelegramPlane /></a>
+            <a href="https://wa.me/+251962771180" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><FaWhatsapp /></a>
           </div>
         </div>
         {/* Quick Links */}
@@ -32,13 +32,13 @@ const Footer = () => {
         </div>
         {/* Services */}
         <div className="footer-col">
-          <h4>Services</h4>
+          <h4>Expertise</h4>
           <ul>
             <li>Frontend Development</li>
-            <li>Backend/API Development</li>
-            <li>Database Design</li>
-            <li>DevOps & Deployment</li>
-            <li>UI/UX Design</li>
+            <li>Backend Development</li>
+            <li>Database Architecture</li>
+            <li>System Design</li>
+            <li>DevOps Solutions</li>
           </ul>
         </div>
         {/* Contact */}
@@ -53,7 +53,7 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Elias Aynekulu. All rights reserved.</span>
-        <span className="footer-made">Made with <span style={{color: 'var(--accent2)', fontWeight: 700}}>&#10084;</span> using React &amp; Framer Motion</span>
+        <span className="footer-made">Built with React & Framer Motion</span>
       </div>
     </footer>
   );

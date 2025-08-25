@@ -27,10 +27,10 @@ const About = () => {
           <h2 className="about-title gradient-text">About Me</h2>
           <div className="about-para">
             <span>
-              I’m a creative and versatile developer with a passion for building seamless digital experiences. Whether it’s frontend, backend, or full stack, I love turning ideas into beautiful, functional products.
+              I am a dedicated software engineer with over 2 years of professional experience in developing robust, scalable applications across the full technology stack. My expertise spans modern frontend frameworks, enterprise backend systems, and database architecture.
             </span>
             <span>
-              My journey spans UI/UX design, application development, and software engineering—always with a focus on user-centric, modern solutions and continuous learning.
+              I specialize in creating efficient, maintainable code while collaborating effectively with cross-functional teams. My approach combines technical excellence with business acumen to deliver solutions that meet both user needs and organizational objectives.
             </span>
           </div>
           <div className="about-achievements creative-achievements">
@@ -41,13 +41,13 @@ const About = () => {
             </div>
             <div className="about-achievement">
               <FaProjectDiagram className="about-achievement-icon" />
-              <h1>10+</h1>
+              <h1>15+</h1>
               <p>Projects Completed</p>
             </div>
             <div className="about-achievement">
               <FaSmile className="about-achievement-icon" />
-              <h1>5+</h1>
-              <p>Happy Clients</p>
+              <h1>100%</h1>
+              <p>Client Satisfaction</p>
             </div>
           </div>
         </div>
